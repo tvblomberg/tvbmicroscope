@@ -1,0 +1,29 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+</head>
+<template name="header">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>    
+            </button>
+            <a class="navbar-brand" href="{{pathFor 'home'}}">Microscope</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav">
+                <li><a class="{{activeRouteClass 'home' 'newPosts'}}" href="{{pathFor 'newPosts'}}">New</a></li>
+                <li><a class="{{activeRouteClass 'bestPosts'}}" href="{{pathFor 'bestPosts'}}">Best</a></li>
+                {{#if currentUser}}
+                <li><a class="{{activeRouteClass 'postSubmit'}}" href="{{pathFor 'postSubmit'}}">Submit Post</a></li>
+                <li class="dropdown">{{> notifications}}</li>
+                {{/if}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {{> loginButtons}}    
+            </ul>
+        </div>
+    </nav>
+</template>
